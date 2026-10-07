@@ -18,11 +18,11 @@ struct monoblock_data
     char c_data[32];
     };
 extern struct monoblock_data monoblock;
-// Тип события
+// РўРёРї СЃРѕР±С‹С‚РёСЏ
 typedef enum {  NO_EVENT=0,TIMER_OVFL,IM_IN_NET,NET_ACCESS,NOT_NET_ACCESS,
                 MONOBLOCK_DATA_RECEIVED,MODBUS_SENDED,MODBUS_RECEIVED,
                 MODBUS_CHECK_RECEIVED,MODBUS_DATA_RECEIVED,
                 MONOBLOCK_DATA_SENDED}event_type;
                 
-extern void put_event(event_type);      // Постановка события в очередь на обработку
+extern void put_event(event_type);      // РџРѕСЃС‚Р°РЅРѕРІРєР° СЃРѕР±С‹С‚РёСЏ РІ РѕС‡РµСЂРµРґСЊ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ
 #endif

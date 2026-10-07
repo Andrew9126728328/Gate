@@ -1,9 +1,9 @@
 #ifndef _MB_Net_
 #define _MB_Net_
 
-/* Флаг управления данными */
+/* Р¤Р»Р°Рі СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹РјРё */
 extern volatile char contr_flag;
-/* Где */
+/* Р“РґРµ */
 #define RX_DATA     (1<<0)
 #define BAD_DATA    (1<<1)
 #define READY_DATA  (1<<2)
@@ -16,9 +16,9 @@ extern volatile char contr_flag;
 #define REQUEST             0xE0
 #define SEND_DATA           0
 
-extern void init_MB_net (void);                     // Инициализация сети моноблоков
-extern bool check_net(char adr);                    // Проверка наличия устройства в сети
-extern void send_to_monoblock(struct monoblock_data *data);   // Передать данные или команду в монблок
+extern void init_MB_net (void);                     // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРµС‚Рё РјРѕРЅРѕР±Р»РѕРєРѕРІ
+extern bool check_net(char adr);                    // РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ СѓСЃС‚СЂРѕР№СЃС‚РІР° РІ СЃРµС‚Рё
+extern void send_to_monoblock(struct monoblock_data *data);   // РџРµСЂРµРґР°С‚СЊ РґР°РЅРЅС‹Рµ РёР»Рё РєРѕРјР°РЅРґСѓ РІ РјРѕРЅР±Р»РѕРє
 
 struct com
     {
@@ -28,13 +28,13 @@ struct com
     char check_sum;
     };
 extern struct com volatile rx,tx;
-extern volatile unsigned short net_member;         // Реестр членов сети
+extern volatile unsigned short net_member;         // Р РµРµСЃС‚СЂ С‡Р»РµРЅРѕРІ СЃРµС‚Рё
 
 #ifdef _TIMER0_
-#define MY_ADR  14     // Свой адрес
-/* Флаг сети */
+#define MY_ADR  14     // РЎРІРѕР№ Р°РґСЂРµСЃ
+/* Р¤Р»Р°Рі СЃРµС‚Рё */
 extern volatile char net_flag;
-/* Где */
+/* Р“РґРµ */
 #define DATA_MY     (1<<0)
 #define MARKER_MY   (1<<1)
 #define REQ_REG     (1<<2)
@@ -43,12 +43,12 @@ extern volatile char net_flag;
 #define REQ_WIN     (1<<5)
 #define TX_MY       (1<<6)
 #define CMD_DATA    (1<<7)
-extern volatile char adr_next;                     // Адрес преемника
-extern volatile char m_counter;                    // Счетчик для контроля выпадения из сети
-extern volatile char i_counter;                    // Счетчик, обеспечивающий порядок начальной инициализации сети
-extern volatile char l_counter;                    // Счетчик, обеспечивающий порядок линкования сети
+extern volatile char adr_next;                     // РђРґСЂРµСЃ РїСЂРµРµРјРЅРёРєР°
+extern volatile char m_counter;                    // РЎС‡РµС‚С‡РёРє РґР»СЏ РєРѕРЅС‚СЂРѕР»СЏ РІС‹РїР°РґРµРЅРёСЏ РёР· СЃРµС‚Рё
+extern volatile char i_counter;                    // РЎС‡РµС‚С‡РёРє, РѕР±РµСЃРїРµС‡РёРІР°СЋС‰РёР№ РїРѕСЂСЏРґРѕРє РЅР°С‡Р°Р»СЊРЅРѕР№ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃРµС‚Рё
+extern volatile char l_counter;                    // РЎС‡РµС‚С‡РёРє, РѕР±РµСЃРїРµС‡РёРІР°СЋС‰РёР№ РїРѕСЂСЏРґРѕРє Р»РёРЅРєРѕРІР°РЅРёСЏ СЃРµС‚Рё
 
-// Тип команды
+// РўРёРї РєРѕРјР°РЅРґС‹
 typedef enum {MARKER=0,SEND_MARKER,REQUEST_ON_REGISTRATION,REGISTRATION,SET_SUCCESSOR,TICKET_OK,TICKET_FALSE,DATA}cmd_type;
 extern void build_command(char,cmd_type);
 #endif /* _TIMER0_ */
