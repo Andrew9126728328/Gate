@@ -1,0 +1,30 @@
+# Autor: Andrew_Q
+
+####################### Exclude all files and folders #######################
+
+# Exclude all other files
+*.*
+
+# Exclude all other folders in project with files
+/**/*.*
+
+############################# Include need files ############################
+
+# Include git services files
+!.gitignore
+!.gitmodule
+!.git
+!Readme.md
+
+
+# Include all project files
+# ASM
+!/**/*.s90
+# C
+!/**/*.c
+!/**/*.h
+# C++
+!/**/*.cpp
+!/**/*.hpp
+
+# end of gitignore file 

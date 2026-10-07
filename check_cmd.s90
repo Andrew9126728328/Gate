@@ -1,0 +1,25 @@
+    NAME check_cmd
+#include "iom162.h"              
+    PUBLIC check_cmd            ; Имя функции в С
+    RSEG CODE                   ; Код расположить в RSEG
+
+;Update CRC
+;Input: R16 - входная команда
+;Out:   R16 - 1 - если нечет, 0 - если чет
+
+check_cmd:
+        clc
+        mov     r17,r16
+        swap    r17
+        eor     r16,r17 
+	ror     r16
+	rol     r17
+	ror     r16
+	rol     r17
+	eor     r16,r17
+	ror     r16
+	rol     r17
+	eor     r16,r17 
+	ret              	;Return
+
+END
